@@ -63,13 +63,17 @@
         <div id="text">
             <p>hi,,, stelle (the cat) will help you <br> compute. :3</p>
             <form>
-                <input placeholder="value for x" type="text" id="x"><br><br>
+                <!-- this form is important. it's how we'll get the values in the first place -->
+                <input placeholder="value for x" type="text" id="x"><br><br> 
                 <input placeholder="value for y" type="text" id="y"><br>
+                <!-- make sure ids match with the id you'll put into the functions later. won't work if diff spelling -->
             </form><br>
             <p>click the buttons to proceed ♡ </p>
         </div>
     </div>
     <div class="container mt-3" id="buttons">
+        <!-- onclick="myFunction()" when u press button function does its job -->
+        <!-- make sure their names match with the functions later -->
         <button onclick="product()">product of x and y</button>
         <button onclick="exponent()">x raised to y</button><br>
         <button onclick="remainder()">get the remainder</button>
@@ -77,20 +81,26 @@
     </div>
     <script>
         function product() {
-            let x = parseFloat(document.getElementById('x').value);
+            // parseFloat is prettier and Big Boy (# -> floating point #) 
+            // since we have an id for x and y (line 67-68), 'let' can declare x and y as the values inputted into the form (textbox)
+            let x = parseFloat(document.getElementById('x').value); 
             let y = parseFloat(document.getElementById('y').value);
+            // this is the formula to calculate the values inputed. * is for multiplication
             alert(x + " times " + y + " is " + (x * y));
+            // when the button is pressed, an alert saying the stuff in () will pop up
         }
 
         function exponent() {
             let x = parseFloat(document.getElementById('x').value);
             let y = parseFloat(document.getElementById('y').value);
+            // ** is to raise x by y
             alert(x + " raised to " + y + " is " + (x ** y));
         }
 
         function remainder() {
             let x = parseFloat(document.getElementById('x').value);
             let y = parseFloat(document.getElementById('y').value);
+            // if x is larger than y then remainder will be x. ex: 4 % 7 = 4. 7 % 4 = 3. reminder in alert was added 
             alert("the remainder of " + x + " and " + y + " is " + (x % y) + ". \n\nif the calculation seems wrong, please make sure that x is the bigger number, while y is the smaller number.");
         }
 
@@ -98,10 +108,12 @@
             let x = parseFloat(document.getElementById('x').value);
             let y = parseFloat(document.getElementById('y').value);
 
+            // if x is equal to y. '=' will not work will always show "x is equal to x". '===' is strict equality
             if (x === y) {
                 alert(x + " is equal to " + y);
             } 
 
+            // if x is not equal to y. '!' is logical not, '==' is loosely equal. '!' + '==' = '!==' not equal value or type
             if (x !== y){
                 alert(x + " is not equal to " + y);
             }
